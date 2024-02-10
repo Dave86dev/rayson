@@ -1,7 +1,14 @@
-import React from 'react'
+import React from "react";
+import "./PrimitivesRender.css";
 
-import { PrimitivesComponentProps } from '../../interfaces'
+import { PrimitivesComponentProps } from "../../interfaces";
 
-export const PrimitivesRender: React.FC<PrimitivesComponentProps> = ({ keyName, value }) => (
-    <>{`${keyName}: ${value !== null ? value.toString() : 'null'}`}</>
-  );
+export const PrimitivesRender: React.FC<PrimitivesComponentProps> = ({
+  keyName,
+  value,
+}) => (
+  <div className='primitivesDesign'>
+    <div className="key">{`${keyName}`}</div>:{" "}
+    {`${value !== null ? value.toString() : "null"}`}
+  </div>
+);

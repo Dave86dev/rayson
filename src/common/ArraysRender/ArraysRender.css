@@ -1,0 +1,14 @@
+.arraysDesign {
+    display: flex;
+    flex-direction: row;
+}
+
+.keyArray {
+    color: #fb7e14;
+    font-weight: bold;
+}
+
+.keyArray:hover {
+    cursor: pointer;
+    color: red;
+}

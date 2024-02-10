@@ -28,6 +28,7 @@ h4 {
 }
 
 .jsonContainer {
+  height: 22em;
   max-height: 22em;
   width: 50em;
   overflow-y: auto;
