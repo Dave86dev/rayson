@@ -1,6 +1,9 @@
 import React from "react";
 import data from "../../data/demoData.json";
 import { StackElement } from "../../interfaces";
+import { ArraysRender } from "../ArraysRender/ArraysRender";
+import { ObjectsRender } from "../ObjectsRender/ObjectsRender";
+import { PrimitivesRender } from "../PrimitivesRender/PrimitivesRender";
 
 export const JsonRender: React.FC = ({}) => {
   //Here we go .. let's rock with the iterative function
@@ -10,24 +13,22 @@ export const JsonRender: React.FC = ({}) => {
     //let's see if you are a JSON and you are not null....
     if (typeof json === "object" && json !== null) {
 
-      const stack: (StackElement & {parentPath: string})[] = Object.entries(json).map(([key, value]) => ({ key, value, parentPath }));
+      const stack: (StackElement & {parentPath: string})[] = Object.entries(json).map(([keyName, value]) => ({ keyName, value, parentPath }));
       const elements: JSX.Element[] = [];
 
       while(stack.length > 0){
         //careful with this in the future!, need to handle error....
-        const { key, value, parentPath } = stack.pop()!;
-        const currentPath = `${parentPath}.${key}`;
+        const { keyName, value, parentPath } = stack.pop()!;
+        const currentPath = `${parentPath}${parentPath ? '.' : ''}${keyName}`;
 
-        if (typeof value === 'object' && value !== null) {
-            Object.entries(value).forEach(([childKey, childValue]) => {
-              stack.push({ key: childKey, value: childValue, parentPath: currentPath });
-            });
-            elements.push(<div key={currentPath}><strong>{key}:</strong></div>);
-          } else {
-            // Handle non-object values
-            console.log(value)
-            elements.push(<div key={currentPath}>{key}: {String(value)}</div>);
-          }
+        if (Array.isArray(value)) {
+          elements.push(<div key={currentPath}><ArraysRender keyName={keyName} value={value} /></div>);
+        } else if (typeof value === 'object' && value !== null) {
+          elements.push(<div key={currentPath}><ObjectsRender keyName={keyName} value={value} /></div>);
+        } else { 
+          elements.push(<PrimitivesRender key={currentPath} keyName={keyName} value={value} />);
+        }
+        
       }
 
       //last first..
