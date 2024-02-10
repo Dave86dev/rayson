@@ -1,7 +1,6 @@
 import "./App.css";
 
 import { JsonRender } from "./common/JsonRender/JsonRender";
-import jsonData from "./data/demoData.json";
 
 function App() {
   // const [criteria, setCriteria] = useState<string>("");
@@ -22,7 +21,7 @@ function App() {
         {/* <div className="value">{value}</div> */}
       </div>
       <div className="jsonContainer">
-        <JsonRender data={jsonData as unknown} depth={0} actualRoute="" />
+        <JsonRender />
       </div>
     </div>
   );

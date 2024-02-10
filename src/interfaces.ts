@@ -1,5 +1,5 @@
-export interface JsonRenderProps {
-    data: unknown
-    depth: number
-    actualRoute: string
+export interface StackElement {
+    key: string;
+    value: unknown;
+    parentKey?: string;
 }
