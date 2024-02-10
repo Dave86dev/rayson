@@ -1,0 +1,10 @@
+
+.primitivesDesign {
+    display: flex;
+    flex-direction: row;
+}
+
+/* .key:hover {
+    cursor: pointer;
+    color: red;
+} */
