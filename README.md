@@ -2,7 +2,7 @@
 
 Here's the first beta version 0.4 of raYSON, still in the early stages with many features yet to be implemented and a design that's temporary and awaiting overhaul. For the moment, enjoy inputting URLs into the designated field as instructed within the app itself, and delve into the various depths of the JSON it renders. 
 
-Error handling has been integrated for instances of incorrect URLs or those failing to return JSON. We're already laying the groundwork for the upcoming version, which promises a dynamic search feature and an enhanced design... there might even be a very cool logo on the way!
+Error handling has been integrated for instances of incorrect URLs or those failing to return JSON. I am already laying the groundwork for the upcoming version, which promises a dynamic search feature and an enhanced design... there might even be a very cool logo on the way! Stay tuned for the upcoming days and weeks.
 
 <p align="center">
   <img src="https://i.ibb.co/5RMchxW/Sin-t-tulo.png" alt="Screen 1" title="Screen 1">
