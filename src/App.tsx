@@ -18,7 +18,6 @@ function App() {
       if (fetchCriteria.trim() !== "") {
         try {
           const data = await fetchDataFromUrl(fetchCriteria)
-          console.log("mierda",data)
           setDataJson(data)
         } catch (error) {
           console.log(error)
@@ -37,7 +36,7 @@ function App() {
     <div className="mainContainer">
       <div className="search">
         <input
-          className="input"
+          className="inputFetch"
           type="text"
           autoCorrect="off"
           spellCheck="false"
