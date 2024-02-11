@@ -17,7 +17,7 @@ function App() {
     if (fetchCriteria.trim() !== "") {
       const fetching = setTimeout(async () => {
         const result = await fetchDataFromUrl(fetchCriteria);
-        if ('error' in result) {
+        if ("error" in result) {
           setError(result.error);
           setDataJson(null);
           setHasFetchedData(false);
@@ -38,22 +38,28 @@ function App() {
 
   return (
     <div className="mainContainer">
-      <div className="search">
-        <input
-          className="inputFetch"
-          type="text"
-          autoCorrect="off"
-          spellCheck="false"
-          value={fetchCriteria || ""}
-          onChange={handleInputChange}
-        />
-      </div>
-      <div className="jsonContainer">
-        {error ? (
-          <p className="errorMessage">{error}</p>
-        ) : hasFetchedData ? (
-          <JsonRender data={dataJson} />
-        ) : null}
+      <h4>
+        {"{"} raYSON 0.4 Beta {"}"}
+      </h4>
+      <div className="uxContainer">
+        <div className="search">
+          <input
+            className="inputFetch"
+            type="text"
+            autoCorrect="off"
+            spellCheck="false"
+            placeholder="Enter a URL that returns JSON data"
+            value={fetchCriteria || ""}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className="jsonContainer">
+          {error ? (
+            <p className="errorMessage">{error}</p>
+          ) : hasFetchedData ? (
+            <JsonRender data={dataJson} />
+          ) : null}
+        </div>
       </div>
     </div>
   );
