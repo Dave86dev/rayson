@@ -1,12 +1,33 @@
 import React, { useState } from 'react';
 import "./ArraysRender.css";
-
 import { ArraysComponentProps } from '../../interfaces';
+import { ObjectsRender } from '../ObjectsRender/ObjectsRender';
+import { PrimitivesRender } from '../PrimitivesRender/PrimitivesRender';
 
-export const ArraysRender: React.FC<ArraysComponentProps> = ({ keyName, value }) => {
+export const ArraysRender: React.FC<ArraysComponentProps> = ({ keyName, value, depth = 0 }) => {
     const [isExpanded, setIsExpanded] = useState(false);
   
-    const toggleExpand = () => setIsExpanded(!isExpanded);
+    const toggleExpand = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        event.stopPropagation();
+        setIsExpanded(!isExpanded);
+    };
+
+    const renderArrayItem = (item: any, index: number) => {
+        const itemType = typeof item;
+        if (itemType === 'object' && item !== null) {
+            return Array.isArray(item) ? (
+                <div key={index}>
+                  <ArraysRender keyName={`Item ${index}`} value={item} depth={depth + 1} />
+                </div>
+            ) : (
+                <div key={index}>
+                  <ObjectsRender value={item} depth={depth + 1} />
+                </div>
+            );
+        } else {
+            return <div key={index}><PrimitivesRender keyName={`Item ${index}`} value={item} /></div>;
+        }
+    };
   
     return (
       <div className='arraysDesign'>
@@ -14,14 +35,11 @@ export const ArraysRender: React.FC<ArraysComponentProps> = ({ keyName, value })
           {keyName}: [{value.length}] {isExpanded ? '[-]' : '[+]'}
         </div>
         {isExpanded && (
-          <ul>
-            {value.map((item, index) => (
-              <li key={index}>
-                Item {index + 1}: {JSON.stringify(item)}
-              </li>
-            ))}
-          </ul>
+          <div>
+            <br/>
+            {value.map((item, index) => renderArrayItem(item, index))}
+          </div>
         )}
       </div>
     );
-  };
+};
