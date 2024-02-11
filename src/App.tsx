@@ -1,36 +1,40 @@
-import { useEffect, useState } from "react"
-import { JsonRender } from "./common/JsonRender/JsonRender"
-import { fetchDataFromUrl } from "./services/dataFetch"
-import "./App.css"
+import React, { useEffect, useState } from "react";
+import { JsonRender } from "./common/JsonRender/JsonRender";
+import { fetchDataFromUrl } from "./services/dataFetch";
+import "./App.css";
 
 function App() {
-
-  const [fetchCriteria, setFetchCriteria] = useState<string>("")
-  const [dataJson, setDataJson] = useState<any>("")
+  const [fetchCriteria, setFetchCriteria] = useState<string>("");
+  const [dataJson, setDataJson] = useState<unknown>(null);
+  const [error, setError] = useState<string>("");
+  const [hasFetchedData, setHasFetchedData] = useState<boolean>(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFetchCriteria(e.target.value);
-  }
+  };
 
   useEffect(() => {
-    //debouncing the search....
-    const fetching = setTimeout(async () => {
-      if (fetchCriteria.trim() !== "") {
-        try {
-          const data = await fetchDataFromUrl(fetchCriteria)
-          setDataJson(data)
-        } catch (error) {
-          console.log(error)
-
-          //next thing to do...handle errors properly....
+    if (fetchCriteria.trim() !== "") {
+      const fetching = setTimeout(async () => {
+        const result = await fetchDataFromUrl(fetchCriteria);
+        if ('error' in result) {
+          setError(result.error);
+          setDataJson(null);
+          setHasFetchedData(false);
+        } else {
+          setDataJson(result);
+          setError("");
+          setHasFetchedData(true);
         }
-      } else {
-        setDataJson("")
-      }
-    }, 375)
+      }, 375);
 
-    return () => clearTimeout(fetching)
-  }, [fetchCriteria])
+      return () => clearTimeout(fetching);
+    } else {
+      setDataJson(null);
+      setError("");
+      setHasFetchedData(false);
+    }
+  }, [fetchCriteria]);
 
   return (
     <div className="mainContainer">
@@ -45,10 +49,14 @@ function App() {
         />
       </div>
       <div className="jsonContainer">
-        <JsonRender data={dataJson} />
+        {error ? (
+          <p className="errorMessage">{error}</p>
+        ) : hasFetchedData ? (
+          <JsonRender data={dataJson} />
+        ) : null}
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
