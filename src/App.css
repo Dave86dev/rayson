@@ -38,11 +38,12 @@ h4 {
   border-radius: 0.5em;
   border: 0.05em solid #fb7e14;
   padding: 1em;
+  margin-top: 3em;
 }
 
-.input {
+.inputFetch {
   height: 3rem;
-  width: 35rem;
+  width: 51rem;
   font-size: 1em;
   color: white;
   padding-left: 1em;
@@ -52,7 +53,7 @@ h4 {
   transition: 0.3s;
 }
 
-.input:focus {
+.inputFetch:focus {
   transition: 0.3s;
   box-shadow: 0 0 1em rgba(251, 126, 20, 1);
   outline: none;

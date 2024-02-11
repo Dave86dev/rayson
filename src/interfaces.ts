@@ -4,6 +4,10 @@ export interface StackElement {
     parentKey?: string
 }
 
+export interface JsonRenderProps {
+    data: any
+}
+
 export interface ArraysComponentProps {
     keyName: string 
     value: any[] 
@@ -11,7 +15,6 @@ export interface ArraysComponentProps {
 }
 
 export interface ObjectsComponentProps {
-    // keyName: string
     value: { [key: string]: any}
     depth?: number 
 }
