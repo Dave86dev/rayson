@@ -1,11 +1,12 @@
 import React from "react";
-import data from "../../data/demoData.json";
 import { StackElement } from "../../interfaces";
 import { ArraysRender } from "../ArraysRender/ArraysRender";
 import { ObjectsRender } from "../ObjectsRender/ObjectsRender";
 import { PrimitivesRender } from "../PrimitivesRender/PrimitivesRender";
 
-export const JsonRender: React.FC = ({}) => {
+import { JsonRenderProps } from "../../interfaces";
+
+export const JsonRender: React.FC<JsonRenderProps> = ({data}) => {
   //Here we go .. let's rock with the iterative function
 
   const renderIteration = (json: unknown, parentPath = '') => {
