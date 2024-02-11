@@ -25,7 +25,7 @@ export const ArraysRender: React.FC<ArraysComponentProps> = ({ keyName, value, d
                 </div>
             );
         } else {
-            return <div key={index}><PrimitivesRender keyName={`Item ${index}`} value={item} /></div>;
+            return <div key={index}><PrimitivesRender keyName={''} value={item} /></div>;
         }
     };
   
@@ -35,8 +35,8 @@ export const ArraysRender: React.FC<ArraysComponentProps> = ({ keyName, value, d
           {keyName}: [{value.length}] {isExpanded ? '[-]' : '[+]'}
         </div>
         {isExpanded && (
-          <div>
-            <br/>
+          // <div style={{ marginLeft: `${(depth + 1) * 1}em` }}>
+          <div style={{ marginLeft: `${depth === 0 ? 3 : (depth + 1) * 1}em` }}>
             {value.map((item, index) => renderArrayItem(item, index))}
           </div>
         )}

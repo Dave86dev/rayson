@@ -7,8 +7,13 @@ export const PrimitivesRender: React.FC<PrimitivesComponentProps> = ({
   keyName,
   value,
 }) => (
-  <div className='primitivesDesign'>
-    <div className="key">{`${keyName}`}</div>:{" "}
+  <div className="primitivesDesign">
+    {keyName !== "" && (
+      <>
+        <div className="key">{keyName}</div>
+        {": "}
+      </>
+    )}{" "}
     {`${value !== null ? value.toString() : "null"}`}
   </div>
 );

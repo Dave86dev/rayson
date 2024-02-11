@@ -25,7 +25,7 @@ export const ObjectsRender: React.FC<ObjectsComponentProps> = ({
             const isObject = nestedValue !== null && typeof nestedValue === 'object' && !Array.isArray(nestedValue);
             const isArray = Array.isArray(nestedValue);
             return (
-              <div key={nestedKey} style={{ marginLeft: `${(depth + 1) * 0.8}em` }}>
+              <div key={nestedKey} style={{ marginLeft: `${(depth + 1) * 1}em` }}>
                 {isArray ? (
                   <ArraysRender keyName={nestedKey} value={nestedValue} depth={depth + 1} />
                 ) : isObject ? (
