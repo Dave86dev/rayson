@@ -16,7 +16,8 @@ export const ObjectsRender: React.FC<ObjectsComponentProps> = ({
   };
 
   return (
-    <div className='keyObject' style={{ marginLeft: `${depth * 0.8}em`, cursor: 'pointer' }} onClick={toggleExpand}>
+    // <div className='keyObject' style={{ marginLeft: `${depth * 0.8}em`, cursor: 'pointer' }} onClick={toggleExpand}>
+    <div className='keyObject' style={{  cursor: 'pointer' }} onClick={toggleExpand}>
       {'{}'} {isExpanded ? '[-]' : '[+]'}
       {isExpanded && (
         <div>
