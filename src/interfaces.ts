@@ -5,13 +5,15 @@ export interface StackElement {
 }
 
 export interface ArraysComponentProps {
-    keyName: string
-    value: Array<any>
+    keyName: string 
+    value: any[] 
+    depth?: number
 }
 
 export interface ObjectsComponentProps {
-    keyName: string
+    // keyName: string
     value: { [key: string]: any}
+    depth?: number 
 }
 
 export interface PrimitivesComponentProps {

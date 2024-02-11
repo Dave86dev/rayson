@@ -33,7 +33,13 @@
             "unique": "SA54126652981129867990",
             "hasError": false,
             "test1": null,
-            "test2": 1986
+            "test2": 1986,
+            "lets" : {
+                "try" : 1985,
+                "this" : {
+                    "right?" : true
+                }
+            }
         },
         {
             "id": "laksf0998043509",
@@ -41,7 +47,31 @@
             "unique": "SR334397902985812309384",
             "hasError": false,
             "test1": null,
-            "test2": 1985
+            "test2": 1985,
+            "nestedArray" : [
+                {
+                    "hey" : "this"
+                },
+                {
+                    "is": "just"
+                },
+                {
+                    "some": "mocking",
+                    "it": [
+                        {
+                            "seems": "to work",
+                            "very": {
+                                "good" : "right?"
+                            },
+                            "or" : [
+                                {
+                                    "maybe": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         },
         {
             "id": "amlksdfm094350945",
