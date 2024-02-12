@@ -1,22 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { JsonRender } from "./common/JsonRender/JsonRender";
 import { fetchDataFromUrl } from "./services/dataFetch";
+import { searchJson } from "./utils/jsonExplorer";
 import "./App.css";
 
 function App() {
-  const [fetchCriteria, setFetchCriteria] = useState<string>("");
+  const [criteria, setCriteria] = useState<{ fetching: string; searching: string }>({
+    fetching: "",
+    searching: "",
+  });
+
+  const [searchResult, setSearchResult] = useState<string>("")
+
   const [dataJson, setDataJson] = useState<unknown>(null);
   const [error, setError] = useState<string>("");
   const [hasFetchedData, setHasFetchedData] = useState<boolean>(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFetchCriteria(e.target.value);
+    setCriteria(prevState => ({
+      ...prevState, 
+      [e.target.name] : e.target.value
+    }));
   };
 
   useEffect(() => {
-    if (fetchCriteria.trim() !== "") {
+    if (criteria.fetching.trim() !== "") {
       const fetching = setTimeout(async () => {
-        const result = await fetchDataFromUrl(fetchCriteria);
+        const result = await fetchDataFromUrl(criteria.fetching);
         if ("error" in result) {
           setError(result.error);
           setDataJson(null);
@@ -33,8 +43,21 @@ function App() {
       setDataJson(null);
       setError("");
       setHasFetchedData(false);
+      setCriteria(prevState => ({
+        ...prevState, 
+        searching : ""
+      }));
     }
-  }, [fetchCriteria]);
+  }, [criteria.fetching]);
+
+  useEffect(() => {
+    if (criteria.searching.trim() !== "" && dataJson) {
+      const result = searchJson(dataJson, criteria.searching);
+      setSearchResult(result);
+    } else {
+      setSearchResult("");
+    }
+  }, [criteria.searching, dataJson]);
 
   return (
     <div className="mainContainer">
@@ -42,17 +65,29 @@ function App() {
         {"{"} raYSON 0.4 Beta {"}"}
       </h4>
       <div className="uxContainer">
-        <div className="search">
+        <>
           <input
-            className="inputFetch"
             type="text"
             autoCorrect="off"
             spellCheck="false"
+            name="fetching"
             placeholder="Enter a URL that returns JSON data"
-            value={fetchCriteria || ""}
+            value={criteria.fetching || ""}
             onChange={handleInputChange}
           />
-        </div>
+        </>
+        <>
+          <input
+            type="text"
+            autoCorrect="off"
+            spellCheck="false"
+            name="searching"
+            disabled={!dataJson ? true : false }
+            placeholder=""
+            value={criteria.searching || ""}
+            onChange={handleInputChange}
+          />
+        </>
         <div className="jsonContainer">
           {error ? (
             <p className="errorMessage">{error}</p>
