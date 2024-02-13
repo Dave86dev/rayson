@@ -4,6 +4,11 @@ export interface StackElement {
     parentKey?: string
 }
 
+export interface JsonSearchProps {
+    dataJson: unknown,
+    criteria: string
+}
+
 export interface JsonRenderProps {
     data: any
 }

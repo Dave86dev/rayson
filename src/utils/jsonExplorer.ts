@@ -1,7 +1,35 @@
 
-export const searchJson = (jsonData: unknown, searchPath: string): any => {
+import { JsonSearchProps } from "../interfaces";
 
-
-    return "pepe"
-    
-}
+export const JsonExplorer = ({ dataJson, criteria }: JsonSearchProps): string => {
+    const stack: Array<{ dataJson: any; actualRoute: string }> = [{ dataJson, actualRoute: "" }];
+  
+    while (stack.length > 0) {
+      const { dataJson: currentNode, actualRoute } = stack.pop()!; // Assume stack is never empty here
+  
+      if (typeof currentNode === "object" && currentNode !== null) {
+        for (const [key, value] of Object.entries(currentNode)) {
+          const newPath = Array.isArray(currentNode)
+            ? `${actualRoute}[${key}]`
+            : actualRoute
+            ? `${actualRoute}.${key}`
+            : key;
+  
+          if (newPath === criteria) {
+            if (value === null) {
+              return "null";
+            } else if (typeof value !== "object") {
+              return String(value); 
+            }
+          } else if (typeof value === "object") {
+            stack.push({ dataJson: value, actualRoute: newPath });
+          }
+        }
+      } else if (actualRoute === criteria) {
+        return String(currentNode);
+      }
+    }
+  
+    return "No match found";
+  };
+  

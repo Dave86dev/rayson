@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { JsonRender } from "./common/JsonRender/JsonRender";
 import { fetchDataFromUrl } from "./services/dataFetch";
-import { searchJson } from "./utils/jsonExplorer";
+import { JsonExplorer } from "./utils/jsonExplorer";
 import "./App.css";
 
 function App() {
@@ -52,7 +52,7 @@ function App() {
 
   useEffect(() => {
     if (criteria.searching.trim() !== "" && dataJson) {
-      const result = searchJson(dataJson, criteria.searching);
+      let result = JsonExplorer({dataJson, criteria: criteria.searching});
       setSearchResult(result);
     } else {
       setSearchResult("");
@@ -62,7 +62,7 @@ function App() {
   return (
     <div className="mainContainer">
       <h4>
-        {"{"} raYSON 0.4 Beta {"}"}
+        {"{"} raYSON 0.5 {"}"}
       </h4>
       <div className="uxContainer">
         <>
@@ -91,9 +91,9 @@ function App() {
         <div className="jsonContainer">
           {error ? (
             <p className="errorMessage">{error}</p>
-          ) : hasFetchedData ? (
+          ) : hasFetchedData && !searchResult ? (
             <JsonRender data={dataJson} />
-          ) : null}
+          ) : searchResult}
         </div>
       </div>
     </div>
