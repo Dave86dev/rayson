@@ -72,6 +72,7 @@ function App() {
             spellCheck="false"
             name="fetching"
             placeholder="Enter a URL that returns JSON data"
+            autoComplete="off"
             value={criteria.fetching || ""}
             onChange={handleInputChange}
           />
@@ -82,8 +83,9 @@ function App() {
             autoCorrect="off"
             spellCheck="false"
             name="searching"
+            autoComplete="off"
             disabled={!dataJson ? true : false }
-            placeholder=""
+            placeholder={dataJson ? "Search enabled" : ""}
             value={criteria.searching || ""}
             onChange={handleInputChange}
           />
