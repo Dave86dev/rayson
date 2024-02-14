@@ -17,8 +17,8 @@ export const ObjectsRender: React.FC<ObjectsComponentProps> = ({
 
   return (
     // <div className='keyObject' style={{ marginLeft: `${depth * 0.8}em`, cursor: 'pointer' }} onClick={toggleExpand}>
-    <div className='keyObject' style={{  cursor: 'pointer' }} onClick={toggleExpand}>
-      {'{}'} {isExpanded ? '[-]' : '[+]'}
+    <div className='keyObject'  >
+      <div className='keyName'>{'{}'}</div> <div className="expanderDesign" onClick={toggleExpand}>{isExpanded ? '[-]' : '[+]'}</div>
       {isExpanded && (
         <div>
           {Object.entries(value).map(([nestedKey, nestedValue]) => {

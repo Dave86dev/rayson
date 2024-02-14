@@ -1,9 +1,17 @@
-
 .keyObject {
+    display: flex;
+    flex-direction: row;
+}
+
+.keyName {
     color: #fb7e14;
 }
 
-.keyObject:hover {
-    cursor: pointer;
+.expanderDesign {
+    cursor:pointer;
+    color: #fb7e14;
+}
+
+.expanderDesign:hover {
     color: red;
 }

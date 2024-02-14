@@ -4,10 +4,19 @@
 }
 
 .keyArray {
+    display: flex;
+    flex-direction: row;
+}
+
+.keyNameValue {
     color: #fb7e14;
 }
 
-.keyArray:hover {
-    cursor: pointer;
+.expanderDesign {
+    cursor:pointer;
+    color: #fb7e14
+}
+
+.expanderDesign:hover {
     color: red;
 }
