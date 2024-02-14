@@ -15,10 +15,10 @@ body {
   background-color: #292929;
 }
 
-.logo {
-  height: 6em;
-  width: 6em;
-}
+/* .logo {
+  height: 25%;
+  width: 25%;
+} */
 
 .mainContainer {
   display: flex;
