@@ -1,14 +1,17 @@
-# raYSON 0.5 
+## raYSON 0.5 
 
-## 13/02/2024 Last update. 
+## 14/02/2024 
 
-Here's the demo version 0.5 of raYSON, still in the early stages with many features yet to be implemented and a design that's temporary and awaiting overhaul. For the moment, enjoy adding URLs into the designated field as instructed within the app itself, and delve into the various depths of the JSON it renders. 
-On this version 0.5, search has been already implemented. Feel free to write the actual route of a known key within the JSON document and you will get it's value, future functionality like fast copy-paste is on its way. Still, avoiding recursivity pro iteration is the pillar coding decision. 
+Updates:
 
-Error handling has been integrated for instances of incorrect URLs or those failing to return JSON, plus you can only search when proper JSON data has been verified. BTW a logo on the way! Stay tuned for the upcoming days and weeks.
+Mobile mode warning.
+
+Render refactoring for more proper user experience while expanding and closing complex types of data (array, objects), how they don't close while clicking on random parts of the Json Container.
+
+Refactored search on objects, now it works!
 
 <p align="center">
-  <img src="https://i.ibb.co/G2z7R3P/Sin-t-tulo.png" alt="Screen 1" title="Screen 1">
+  <img src="https://i.ibb.co/Cwz7GrM/Sin-t-tulo.png" alt="Screen 1" title="Screen 1">
 </p>
 
 ## Table of Contents 
