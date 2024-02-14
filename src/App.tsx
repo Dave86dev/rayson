@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { JsonRender } from "./common/JsonRender/JsonRender";
 import { fetchDataFromUrl } from "./services/dataFetch";
 import { JsonExplorer } from "./utils/jsonExplorer";
+import rayson from "./assets/rayson.png";
 import "./App.css";
 
 function App() {
@@ -61,9 +62,7 @@ function App() {
 
   return (
     <div className="mainContainer">
-      <h4>
-        {"{"} raYSON 0.5 {"}"}
-      </h4>
+      <img className="logo" src={rayson} alt="logo_rayson"/>
       <div className="uxContainer">
         <>
           <input

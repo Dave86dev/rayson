@@ -15,8 +15,9 @@ body {
   background-color: #292929;
 }
 
-h4 {
-  margin: 0 0 0.5em 0;
+.logo {
+  height: 6em;
+  width: 6em;
 }
 
 .mainContainer {
