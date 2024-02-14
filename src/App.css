@@ -74,3 +74,30 @@ input:focus {
   color: white;
   font-size: 1em;
 }
+
+
+.warningMsg {
+  display: none;
+}
+
+@media screen and (max-width: 759px) {
+  .uxContainer, .jsonContainer {
+    display: none; 
+  }
+
+  .warningMsg {
+    display: block; 
+    color: white; 
+    text-align: center;
+    margin-top: 1em;
+    padding: 0.8em;
+    border: 0.01em solid #fb7e14; 
+    border-radius: 0.5em;
+    background-color: #292929; 
+  }
+
+  .logo {
+    max-width: 60%; 
+    margin-bottom: 20px;
+  }
+}

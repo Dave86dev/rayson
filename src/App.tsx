@@ -6,21 +6,24 @@ import rayson from "./assets/rayson.png";
 import "./App.css";
 
 function App() {
-  const [criteria, setCriteria] = useState<{ fetching: string; searching: string }>({
+  const [criteria, setCriteria] = useState<{
+    fetching: string;
+    searching: string;
+  }>({
     fetching: "",
     searching: "",
   });
 
-  const [searchResult, setSearchResult] = useState<string>("")
+  const [searchResult, setSearchResult] = useState<string>("");
 
   const [dataJson, setDataJson] = useState<unknown>(null);
   const [error, setError] = useState<string>("");
   const [hasFetchedData, setHasFetchedData] = useState<boolean>(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCriteria(prevState => ({
-      ...prevState, 
-      [e.target.name] : e.target.value
+    setCriteria((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -44,16 +47,16 @@ function App() {
       setDataJson(null);
       setError("");
       setHasFetchedData(false);
-      setCriteria(prevState => ({
-        ...prevState, 
-        searching : ""
+      setCriteria((prevState) => ({
+        ...prevState,
+        searching: "",
       }));
     }
   }, [criteria.fetching]);
 
   useEffect(() => {
     if (criteria.searching.trim() !== "" && dataJson) {
-      let result = JsonExplorer({dataJson, criteria: criteria.searching});
+      let result = JsonExplorer({ dataJson, criteria: criteria.searching });
       setSearchResult(result);
     } else {
       setSearchResult("");
@@ -62,7 +65,10 @@ function App() {
 
   return (
     <div className="mainContainer">
-      <img className="logo" src={rayson} alt="logo_rayson"/>
+      <img className="logo" src={rayson} alt="logo_rayson" />
+      <div className="warningMsg">
+        Designed for desktops: requires screen width over 760px.
+      </div>
       <div className="uxContainer">
         <>
           <input
@@ -83,7 +89,7 @@ function App() {
             spellCheck="false"
             name="searching"
             autoComplete="off"
-            disabled={!dataJson ? true : false }
+            disabled={!dataJson ? true : false}
             placeholder={dataJson ? "Search enabled" : ""}
             value={criteria.searching || ""}
             onChange={handleInputChange}
@@ -94,7 +100,9 @@ function App() {
             <p className="errorMessage">{error}</p>
           ) : hasFetchedData && !searchResult ? (
             <JsonRender data={dataJson} />
-          ) : searchResult}
+          ) : (
+            searchResult
+          )}
         </div>
       </div>
     </div>
