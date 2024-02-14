@@ -1,6 +1,9 @@
-## raYSON 0.5 
 
-## 14/02/2024 
+<p align="center">
+  raYSON 
+</p>
+
+## 14/02/2024 beta 0.5
 
 Updates:
 
