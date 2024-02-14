@@ -20,6 +20,7 @@ export interface ArraysComponentProps {
 }
 
 export interface ObjectsComponentProps {
+    keyName: string
     value: { [key: string]: any}
     depth?: number 
 }
