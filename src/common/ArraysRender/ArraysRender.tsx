@@ -52,7 +52,6 @@ export const ArraysRender: React.FC<ArraysComponentProps> = ({
         <div className="expanderDesign" onClick={toggleExpand}>{isExpanded ? "[-]" : "[+]"}</div>
       </div>
       {isExpanded && (
-        // <div style={{ marginLeft: `${(depth + 1) * 1}em` }}>
         <div style={{ marginLeft: `${depth === 0 ? 3 : (depth + 1) * 1}em` }}>
           {value.map((item, index) => renderArrayItem(item, index))}
         </div>
