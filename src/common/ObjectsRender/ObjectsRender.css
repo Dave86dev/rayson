@@ -1,5 +1,10 @@
 .keyObject {
     display: flex;
+    flex-direction: column;
+}
+
+.expanderKeyValue {
+    display: flex;
     flex-direction: row;
 }
 

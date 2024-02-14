@@ -25,7 +25,7 @@ export const JsonRender: React.FC<JsonRenderProps> = ({data}) => {
         if (Array.isArray(value)) {
           elements.push(<div key={currentPath}><ArraysRender keyName={keyName} value={value} /></div>);
         } else if (typeof value === 'object' && value !== null) {
-          elements.push(<div key={currentPath}><ObjectsRender value={value} /></div>);
+          elements.push(<div key={currentPath}><ObjectsRender keyName={keyName} value={value} /></div>);
         } else { 
           elements.push(<PrimitivesRender key={currentPath} keyName={keyName} value={value} />);
         }

@@ -31,7 +31,7 @@ export const ArraysRender: React.FC<ArraysComponentProps> = ({
         </div>
       ) : (
         <div key={index}>
-          <ObjectsRender value={item} depth={depth + 1} />
+          <ObjectsRender keyName={""} value={item} depth={depth + 1} />
         </div>
       );
     } else {
