@@ -3,6 +3,7 @@ import "./ObjectsRender.css";
 import { ObjectsComponentProps } from "../../interfaces";
 import { ArraysRender } from "../ArraysRender/ArraysRender";
 import { PrimitivesRender } from "../PrimitivesRender/PrimitivesRender";
+import { JsonCopy } from "../../utils/interfaceCopy";
 
 export const ObjectsRender: React.FC<ObjectsComponentProps> = ({
   keyName,
@@ -18,6 +19,10 @@ export const ObjectsRender: React.FC<ObjectsComponentProps> = ({
     setIsExpanded(!isExpanded);
   };
 
+  const exportHandler = (objectToCopy: any) => {
+    JsonCopy({data: objectToCopy})
+  }
+
   return (
     <div className="keyObject">
       <div className="expanderKeyValue">
@@ -25,6 +30,9 @@ export const ObjectsRender: React.FC<ObjectsComponentProps> = ({
         <div className="expanderDesign" onClick={toggleExpand}>
           {isExpanded ? "[-]" : "[+]"}
         </div>
+        {isExpanded &&
+          <div onClick={()=>exportHandler(value)} className="tsExport">{"<"}TS Int. Export{">"}</div>
+        }
       </div>
       {isExpanded && (
         <div>

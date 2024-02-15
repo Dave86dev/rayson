@@ -12,6 +12,17 @@
     color: #fb7e14;
 }
 
+.tsExport {
+    cursor: pointer;
+    color: #fb7e14;
+    transition: 0.3s;
+}
+
+.tsExport:hover {
+    transition: 0.3s;
+    color: white;
+}
+
 .expanderDesign {
     cursor:pointer;
     color: #fb7e14;
