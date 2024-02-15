@@ -65,7 +65,10 @@ function App() {
 
   return (
     <div className="mainContainer">
-      <img className="logo" src={rayson} alt="logo_rayson" />
+      {/* <img className="logo" src={rayson} alt="logo_rayson" /> */}
+      <div className="logo">
+        <span className="logoOrange">{"{"}</span>r<span className="logoOrange">{"}"}</span>rayson<span className="logoOrange">ts</span>
+      </div>
       <div className="warningMsg">
         Designed for desktops: requires screen width over 760px.
       </div>

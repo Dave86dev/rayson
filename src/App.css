@@ -15,10 +15,16 @@ body {
   background-color: #292929;
 }
 
-/* .logo {
-  height: 25%;
-  width: 25%;
-} */
+.logo {
+  display: flex;
+  flex-direction: row;
+  font-size: 2em;
+  user-select: none;
+}
+
+.logoOrange {
+  color: #fb7e14;
+}
 
 .mainContainer {
   display: flex;
