@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { JsonRender } from "./common/JsonRender/JsonRender";
 import { fetchDataFromUrl } from "./services/dataFetch";
 import { JsonExplorer } from "./utils/jsonExplorer";
-import rayson from "./assets/rayson.png";
 import "./App.css";
 
 function App() {
