@@ -33,7 +33,7 @@ Big README upcoming......
 ## Production
 
 <div align="center">
-    <a href="https://master.d244ccb955zqzp.amplifyapp.com/"><strong>PRODUCTION LINK</strong></a> 
+    <a href="https://master.d22np947aqqpqb.amplifyapp.com/"><strong>PRODUCTION LINK</strong></a> 
 </div>
 
 ## Installation 
