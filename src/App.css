@@ -1,6 +1,13 @@
+:root {
+  --color-background: #292929;
+  --color-highlight: #fb7e14;
+  --color-text: white;
+  --font-family-default: "Verdana", sans-serif;
+}
+
 * {
-  font-family: "Verdana", sans-serif;
-  color: white;
+  font-family: var(--font-family-default);
+  color: var(--color-text);
 }
 
 body {
@@ -11,8 +18,7 @@ body {
   align-items: center;
   height: 100vh;
   width: 100vw;
-
-  background-color: #292929;
+  background-color: var(--color-background);
 }
 
 .logo {
@@ -23,7 +29,7 @@ body {
 }
 
 .logoOrange {
-  color: #fb7e14;
+  color: var(--color-highlight);
 }
 
 .mainContainer {
@@ -33,77 +39,57 @@ body {
   align-items: center;
 }
 
-.uxContainer {
+.uxContainer,
+.jsonContainer {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
 }
 
 .jsonContainer {
   height: 20em;
-  max-height: 20em;
   width: 50em;
-  max-width: 45em;
-  overflow-y: auto;
-  overflow-x: auto;
-  padding: 0em 0em 0.5em 0.5em;
-  border-radius: 0.5em;
-  border: 0.05em solid #fb7e14;
+  overflow: auto;
   padding: 1em;
   margin-top: 4em;
+  border: 0.05em solid var(--color-highlight);
+  border-radius: 0.5em;
 }
 
 input {
   height: 3rem;
   width: 35rem;
-  font-size: 1em;
-  color: white;
   padding-left: 1em;
-  border-radius: 0.5em;
-  border: 0.05em solid #fb7e14;
-  background-color: #292929;
-  transition: 0.3s;
   margin-top: 2em;
+  font-size: 1em;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  border: 0.05em solid var(--color-highlight);
+  border-radius: 0.5em;
+  transition: box-shadow 0.3s;
 }
 
 input:focus {
-  transition: 0.3s;
   box-shadow: 0 0 1em rgba(251, 126, 20, 1);
   outline: none;
 }
-
-.value {
-  height: 1rem;
-  margin-top: 3rem;
-  padding-left: 1em;
-  color: white;
-  font-size: 1em;
-}
-
 
 .warningMsg {
   display: none;
 }
 
 @media screen and (max-width: 759px) {
-  .uxContainer, .jsonContainer {
-    display: none; 
+  .uxContainer,
+  .jsonContainer {
+    display: none;
   }
 
   .warningMsg {
-    display: block; 
-    color: white; 
+    display: block;
     text-align: center;
     margin-top: 1em;
     padding: 0.8em;
-    border: 0.01em solid #fb7e14; 
+    border: 0.01em solid var(--color-highlight);
     border-radius: 0.5em;
-    background-color: #292929; 
-  }
-
-  .logo {
-    max-width: 60%; 
-    margin-bottom: 20px;
+    background-color: var(--color-background);
   }
 }

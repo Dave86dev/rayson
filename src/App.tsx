@@ -64,7 +64,6 @@ function App() {
 
   return (
     <div className="mainContainer">
-      {/* <img className="logo" src={rayson} alt="logo_rayson" /> */}
       <div className="logo">
         <span className="logoOrange">{"{"}</span>r<span className="logoOrange">{"}"}</span>rayson<span className="logoOrange">ts</span>
       </div>
@@ -74,6 +73,7 @@ function App() {
       <div className="uxContainer">
         <>
           <input
+            aria-label="fetchInput"
             type="text"
             autoCorrect="off"
             spellCheck="false"
@@ -86,6 +86,7 @@ function App() {
         </>
         <>
           <input
+            aria-label="searchInput"
             type="text"
             autoCorrect="off"
             spellCheck="false"
