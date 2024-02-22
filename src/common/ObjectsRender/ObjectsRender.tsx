@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "./ObjectsRender.css";
 import { ObjectsComponentProps } from "../../interfaces";
 import { ArraysRender } from "../ArraysRender/ArraysRender";
 import { PrimitivesRender } from "../PrimitivesRender/PrimitivesRender";
 import { JsonCopy } from "../../utils/interfaceCopy";
+import "./ObjectsRender.css";
 
 export const ObjectsRender: React.FC<ObjectsComponentProps> = ({
   keyName,

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./ArraysRender.css";
 import { ArraysComponentProps } from "../../interfaces";
 import { ObjectsRender } from "../ObjectsRender/ObjectsRender";
 import { PrimitivesRender } from "../PrimitivesRender/PrimitivesRender";
+import "./ArraysRender.css";
 
 export const ArraysRender: React.FC<ArraysComponentProps> = ({
   keyName,
