@@ -1,7 +1,7 @@
 import { JsonCopyProps } from "../interfaces";
 
 export const JsonCopy = async ({ keyName, data }: JsonCopyProps): Promise<boolean> => {
-    let interfaceString = `interface ${keyName !== "" ? keyName : "RenameThisObject"} {\n`;
+    let interfaceString = `export interface ${keyName !== "" ? keyName : "RenameThisObject"} {\n`;
 
     Object.entries(data).forEach(([key, value]) => {
         const valueType = typeof value;

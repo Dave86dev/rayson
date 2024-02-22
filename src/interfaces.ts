@@ -34,3 +34,21 @@ export interface PrimitivesComponentProps {
     keyName: string
     value: string | number | boolean | null
 }
+
+export interface SearchInputProps {
+    value: string;
+    onChange: (value: string) => void;
+    disabled: boolean;
+}
+
+export interface FetchInputProps {
+    value: string;
+    onChange: (value: string) => void;
+}
+
+export interface FetchState {
+    data: unknown | null; 
+    error: string;
+    hasFetched: boolean;
+}
+  
