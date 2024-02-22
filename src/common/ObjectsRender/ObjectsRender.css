@@ -1,22 +1,43 @@
 .keyObject {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .expanderKeyValue {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .keyName {
-    color: #fb7e14;
+  color: #fb7e14;
+}
+
+.tsExport {
+  cursor: pointer;
+  color: #fb7e14;
+  transition: 0.3s;
+}
+
+.tsExport:hover {
+  transition: 0.3s;
+  color: white;
 }
 
 .expanderDesign {
-    cursor:pointer;
-    color: #fb7e14;
+  cursor: pointer;
+  color: #fb7e14;
 }
 
 .expanderDesign:hover {
-    color: red;
+  color: red;
+}
+
+.tooltip {
+  position: fixed;
+  background-color: #151515;
+  color: white;
+  padding: 0.4em;
+  border-radius: 0.4em;
+  z-index: 100;
+  transform: translate(-50%, -100%);
 }

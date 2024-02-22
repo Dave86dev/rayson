@@ -9,6 +9,11 @@ export interface JsonSearchProps {
     criteria: string
 }
 
+export interface JsonCopyProps {
+    keyName: string
+    data: any
+}
+
 export interface JsonRenderProps {
     data: any
 }
