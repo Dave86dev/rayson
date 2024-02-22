@@ -1,70 +1,49 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import FetchInput from "./common/FetchInput/FetchInput"; 
+import SearchInput from "./common/SearchInput/SearchInput"; 
 import { JsonRender } from "./common/JsonRender/JsonRender";
+import { FetchState } from "./interfaces";
 import { fetchDataFromUrl } from "./services/dataFetch";
 import { JsonExplorer } from "./utils/jsonExplorer";
 import "./App.css";
 
 function App() {
-  const [criteria, setCriteria] = useState<{
-    fetching: string;
-    searching: string;
-  }>({
-    fetching: "",
-    searching: "",
-  });
-
-  const [searchResult, setSearchResult] = useState<string>("");
-
-  const [dataJson, setDataJson] = useState<unknown>(null);
-  const [error, setError] = useState<string>("");
-  const [hasFetchedData, setHasFetchedData] = useState<boolean>(false);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCriteria((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
-  };
+  const [fetchingUrl, setFetchingUrl] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [fetchState, setFetchState] = useState<FetchState>({ data: null, error: "", hasFetched: false });
+  const [searchResult, setSearchResult] = useState<string | null>(null);
 
   useEffect(() => {
-    if (criteria.fetching.trim() !== "") {
+    if (fetchingUrl.trim() !== "") {
       const fetching = setTimeout(async () => {
-        const result = await fetchDataFromUrl(criteria.fetching);
-        if ("error" in result) {
-          setError(result.error);
-          setDataJson(null);
-          setHasFetchedData(false);
-        } else {
-          setDataJson(result);
-          setError("");
-          setHasFetchedData(true);
+        try {
+          const result = await fetchDataFromUrl(fetchingUrl);
+          if ("error" in result) {
+            setFetchState({ data: null, error: result.error, hasFetched: false });
+          } else {
+            setFetchState({ data: result, error: "", hasFetched: true });
+          }
+        } catch (err) {
+          setFetchState({ data: null, error: "An error occurred while fetching data.", hasFetched: false });
         }
       }, 375);
-
       return () => clearTimeout(fetching);
     } else {
-      setDataJson(null);
-      setError("");
-      setHasFetchedData(false);
-      setCriteria((prevState) => ({
-        ...prevState,
-        searching: "",
-      }));
+      setFetchState({ data: null, error: "", hasFetched: false });
     }
-  }, [criteria.fetching]);
+  }, [fetchingUrl]);
 
   useEffect(() => {
-    if (criteria.searching.trim() !== "" && dataJson) {
-      let result = JsonExplorer({ dataJson, criteria: criteria.searching });
+    if (searchQuery.trim() !== "" && fetchState.data) {
+      const result = JsonExplorer({ dataJson: fetchState.data, criteria: searchQuery });
       setSearchResult(result);
     } else {
-      setSearchResult("");
+      setSearchResult(null);
     }
-  }, [criteria.searching, dataJson]);
+  }, [searchQuery, fetchState.data]);
 
   return (
     <div className="mainContainer">
-      {/* <img className="logo" src={rayson} alt="logo_rayson" /> */}
       <div className="logo">
         <span className="logoOrange">{"{"}</span>r<span className="logoOrange">{"}"}</span>rayson<span className="logoOrange">ts</span>
       </div>
@@ -72,39 +51,15 @@ function App() {
         Designed for desktops: requires screen width over 760px.
       </div>
       <div className="uxContainer">
-        <>
-          <input
-            type="text"
-            autoCorrect="off"
-            spellCheck="false"
-            name="fetching"
-            placeholder="Enter a URL that returns JSON data"
-            autoComplete="off"
-            value={criteria.fetching || ""}
-            onChange={handleInputChange}
-          />
-        </>
-        <>
-          <input
-            type="text"
-            autoCorrect="off"
-            spellCheck="false"
-            name="searching"
-            autoComplete="off"
-            disabled={!dataJson ? true : false}
-            placeholder={dataJson ? "Search enabled" : ""}
-            value={criteria.searching || ""}
-            onChange={handleInputChange}
-          />
-        </>
+        <FetchInput value={fetchingUrl} onChange={setFetchingUrl} />
+        <SearchInput value={searchQuery} onChange={setSearchQuery} disabled={!fetchState.data} />
         <div className="jsonContainer">
-          {error ? (
-            <p className="errorMessage">{error}</p>
-          ) : hasFetchedData && !searchResult ? (
-            <JsonRender data={dataJson} />
+          {fetchState.error && <p className="errorMessage">{fetchState.error}</p>}
+          {!fetchState.error && fetchState.hasFetched && (searchResult !== null ? (
+            <div>{searchResult}</div>
           ) : (
-            searchResult
-          )}
+            <JsonRender data={fetchState.data} />
+          ))}
         </div>
       </div>
     </div>

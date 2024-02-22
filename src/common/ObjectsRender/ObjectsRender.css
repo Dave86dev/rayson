@@ -1,3 +1,10 @@
+:root {
+  --color-highlight: #fb7e14;
+  --color-hover: white;
+  --color-tooltip-bg: #151515;
+  --color-tooltip-text: white;
+}
+
 .keyObject {
   display: flex;
   flex-direction: column;
@@ -8,34 +15,26 @@
   flex-direction: row;
 }
 
-.keyName {
-  color: #fb7e14;
+.keyName,
+.tsExport,
+.expanderDesign {
+  color: var(--color-highlight);
+  cursor: pointer;
 }
 
 .tsExport {
-  cursor: pointer;
-  color: #fb7e14;
   transition: 0.3s;
 }
 
-.tsExport:hover {
-  transition: 0.3s;
-  color: white;
-}
-
-.expanderDesign {
-  cursor: pointer;
-  color: #fb7e14;
-}
-
+.tsExport:hover,
 .expanderDesign:hover {
-  color: red;
+  color: var(--color-hover);
 }
 
 .tooltip {
   position: fixed;
-  background-color: #151515;
-  color: white;
+  background-color: var(--color-tooltip-bg);
+  color: var(--color-tooltip-text);
   padding: 0.4em;
   border-radius: 0.4em;
   z-index: 100;
