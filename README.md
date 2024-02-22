@@ -1,6 +1,6 @@
 
 <p align="center">
-  raYSON 
+  raysonts
 </p>
 
 ## 22/02/2024 beta 0.6
@@ -40,8 +40,8 @@ Now it's time to optimise to the max and work on some UI details.
 If, however, you prefer to install the application locally on your computer, please feel free to follow the steps outlined below. These will guide you through cloning the repository onto your machine and setting up the app to run.
 
 ```sh
-git clone https://github.com/Dave86dev/rayson
-cd rayson
+git clone https://github.com/Dave86dev/raysonts
+cd raysonts
 npm i
 npm run dev
 ```
