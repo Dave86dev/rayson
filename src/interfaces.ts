@@ -10,6 +10,7 @@ export interface JsonSearchProps {
 }
 
 export interface JsonCopyProps {
+    keyName: string
     data: any
 }
 
