@@ -14,7 +14,7 @@ New and cooler logo, isn't it??
 Now it's time to optimise to the max and work on some UI details.
 
 <p align="center">
-  <img src="https://i.ibb.co/Cwz7GrM/Sin-t-tulo.png" alt="Screen 1" title="Screen 1">
+  <img src="https://i.ibb.co/Y0srqvb/aaaa.png" alt="Screen 1" title="Screen 1">
 </p>
 
 ## Table of Contents 
