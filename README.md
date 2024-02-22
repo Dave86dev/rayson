@@ -3,15 +3,15 @@
   raYSON 
 </p>
 
-## 14/02/2024 beta 0.5
+## 22/02/2024 beta 0.6
 
 Updates:
 
-Mobile mode warning.
+Copy objects and translate them dinamically to TypeScript interfaces available!
 
-Render refactoring for more proper user experience while expanding and closing complex types of data (array, objects), how they don't close while clicking on random parts of the Json Container.
+New and cooler logo, isn't it??
 
-Refactored search on objects, now it works!
+Now it's time to optimise to the max and work on some UI details.
 
 <p align="center">
   <img src="https://i.ibb.co/Cwz7GrM/Sin-t-tulo.png" alt="Screen 1" title="Screen 1">
