@@ -19,7 +19,6 @@
 .tsExport,
 .expanderDesign {
   color: var(--color-highlight);
-  cursor: pointer;
 }
 
 .tsExport {
@@ -28,6 +27,7 @@
 
 .tsExport:hover,
 .expanderDesign:hover {
+  cursor: pointer;
   color: var(--color-hover);
 }
 

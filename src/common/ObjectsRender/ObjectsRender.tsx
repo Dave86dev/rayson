@@ -37,9 +37,9 @@ export const ObjectsRender: React.FC<ObjectsComponentProps> = ({
 
   return (
     <div className="keyObject">
-      <div className="expanderKeyValue" onClick={toggleExpand}>
+      <div className="expanderKeyValue">
         <div className="keyName">{keyName !== "" ? `${keyName}:` : "{}:"}</div>
-        <div className="expanderDesign">
+        <div className="expanderDesign" onClick={toggleExpand}>
           {isExpanded ? "[-]" : "[+]"}
         </div>
         {isExpanded && (
