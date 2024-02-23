@@ -3,7 +3,7 @@
   raysonts
 </p>
 
-## 22/02/2024 beta 0.6
+## 22/02/2024 beta 0.7
 
 Updates:
 
@@ -11,8 +11,9 @@ Copy objects and translate them dinamically to TypeScript interfaces available!
 
 New and cooler logo, isn't it??
 
-Now it's time to optimise to the max and work on some UI details.
+Basic optimization (useMemo), bigger optimization coming...
 
+Big README upcoming......
 <p align="center">
   <img src="https://i.ibb.co/Y0srqvb/aaaa.png" alt="Screen 1" title="Screen 1">
 </p>
@@ -32,7 +33,7 @@ Now it's time to optimise to the max and work on some UI details.
 ## Production
 
 <div align="center">
-    <a href="https://master.d244ccb955zqzp.amplifyapp.com/"><strong>PRODUCTION LINK</strong></a> 
+    <a href="https://master.d22np947aqqpqb.amplifyapp.com/"><strong>PRODUCTION LINK</strong></a> 
 </div>
 
 ## Installation 
