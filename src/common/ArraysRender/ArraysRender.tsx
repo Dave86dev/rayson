@@ -9,7 +9,7 @@ export const ArraysRender: React.FC<ArraysComponentProps> = ({
   value,
   depth = 0,
 }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
   const toggleExpand = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>

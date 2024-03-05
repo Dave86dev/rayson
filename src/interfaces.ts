@@ -52,3 +52,7 @@ export interface FetchState {
     hasFetched: boolean;
 }
   
+export interface TooltipPosition {
+    left: number;
+    top: number;
+}

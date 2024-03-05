@@ -8,8 +8,8 @@ import { JsonExplorer } from "./utils/jsonExplorer";
 import "./App.css";
 
 function App() {
-  const [fetchingUrl, setFetchingUrl] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
+  const [fetchingUrl, setFetchingUrl] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const [fetchState, setFetchState] = useState<FetchState>({ data: null, error: "", hasFetched: false });
   const [searchResult, setSearchResult] = useState<string | null>(null);
 

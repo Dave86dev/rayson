@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ObjectsComponentProps } from "../../interfaces";
+import { ObjectsComponentProps, TooltipPosition } from "../../interfaces";
 import { ArraysRender } from "../ArraysRender/ArraysRender";
 import { PrimitivesRender } from "../PrimitivesRender/PrimitivesRender";
 import { JsonCopy } from "../../utils/interfaceCopy";
@@ -10,9 +10,9 @@ export const ObjectsRender: React.FC<ObjectsComponentProps> = ({
   value,
   depth = 0,
 }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(false);
-  const [tooltipPosition, setTooltipPosition] = useState({ left: 0, top: 0 });
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
+  const [showTooltip, setShowTooltip] = useState<boolean>(false);
+  const [tooltipPosition, setTooltipPosition] = useState<TooltipPosition>({ left: 0, top: 0 });
 
   const toggleExpand = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     event.stopPropagation();
