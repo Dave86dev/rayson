@@ -43,7 +43,7 @@ As we look forward, the journey with "raysonts" is far from over. We are activel
 ## Production
 
 <div align="center">
-    <a href="https://master.d22np947aqqpqb.amplifyapp.com/"><strong>www.raysonts.com</strong></a> 
+    <a href="https://www.raysonts.com/"><strong>www.raysonts.com</strong></a> 
 </div>
 
 ## Installation 
