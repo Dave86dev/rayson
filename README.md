@@ -62,7 +62,7 @@ npm run dev
 
 A key principle guiding the development of this application has been the preference for iteration over recursion, ensuring a full commitment to creating a resource-efficient app. This approach enables the processing of large JSON files without compromising our system's speed and efficiency. Recursion is selectively employed for deploying arrays or objects under tightly controlled conditions, employing techniques akin to lazy-loading for optimal performance.
 
-Furthermore, a significant decision during the preliminary analysis phase was the resolve to eschew external libraries, thereby maintaining the application's native integrity. This choice underscores our dedication to leveraging inherent capabilities and ensuring a streamlined, cohesive user experience.
+Furthermore, a significant decision during the preliminary analysis phase was the resolve to eschew external libraries, thereby maintaining the application's native integrity. This choice underscores my dedication to leveraging inherent capabilities and ensuring a streamlined, cohesive user experience.
 
 
 ## Author
