@@ -9,12 +9,18 @@
 
 ## Table of Contents 
 
+- [Production](#production)
 - [About](#about)
 - [Stack](#stack)
-- [Production](#production)
 - [Installation](#installation)
 - [Development](#development)
 - [Author](#author)
+
+## Production
+
+<div align="center">
+    <a href="https://www.raysonts.com/" target="_blank"><strong>www.raysonts.com</strong></a> 
+</div>
 
 ## About
 
@@ -39,12 +45,6 @@ As we look forward, the journey with "raysonts" is far from over. We are activel
 ## Stack 
 
 <img src="https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react&logoColor=black"><img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"><img src="https://img.shields.io/badge/-Vite-747bff?style=for-the-badge&logo=vite&logoColor=white">
-
-## Production
-
-<div align="center">
-    <a href="https://www.raysonts.com/"><strong>www.raysonts.com</strong></a> 
-</div>
 
 ## Installation 
 
