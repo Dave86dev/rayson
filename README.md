@@ -19,7 +19,7 @@
 ## Production
 
 <div align="center">
-    <a href="https://www.raysonts.com/" target="_blank"><strong>www.raysonts.com</strong></a> 
+    <a href="https://www.raysonts.com/"><strong>www.raysonts.com</strong></a> 
 </div>
 
 ## About
